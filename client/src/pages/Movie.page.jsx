@@ -21,11 +21,14 @@ const MoviePage = () => {
     const requestCast = async () => {
       const getCast = await axios.get(`/cast`);
       setCast(getCast.data[0].cast);
+      // console.table(getCast.data[0].cast);
+      // console.log(getCast.data[0].cast[0].name);
     };
 
-    console.log('aaaa====================================');
+    console.log("aaaa====================================");
+
     console.log(cast);
-    console.log('====================================');
+    console.log("====================================");
 
     requestCast();
   }, [id]);
@@ -33,6 +36,8 @@ const MoviePage = () => {
   useEffect(() => {
     const requestSimilarMovies = async () => {
       const getSimilarMovies = await axios.get(`/movie/popular`);
+      console.log("The similar movies are: ");
+      console.table(getSimilarMovies.data[0].results);
       setSimilarMovies(getSimilarMovies.data[0].results);
     };
 
@@ -41,9 +46,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     const requestRecommendedMovies = async () => {
-      const getRecommendedMovies = await axios.get(
-        `/movie/popular`
-      );
+      const getRecommendedMovies = await axios.get(`/movie/popular`);
       setRecommendedMovies(getRecommendedMovies.data[0].results);
     };
 
@@ -94,7 +97,7 @@ const MoviePage = () => {
   const settings = {
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
@@ -126,9 +129,9 @@ const MoviePage = () => {
 
   return (
     <>
-    <Navbarr/>
+      <Navbarr />
       <MovieHero />
-      <div className="my-12 container px-4 lg-ml-20 lg:w-2/3">
+      <div className={`my-12 container px-4 lg-ml-20 lg:w-full`}>
         <div className="flex flex-col items-start gap-3">
           <h1 className="text-gray-800 font-bold text-2xl">About the movie</h1>
           <p>{movie.overview}</p>
@@ -205,11 +208,19 @@ const MoviePage = () => {
             isDark={false}
           />
         </div>
+        {/* Similar movies slider */}
+        <div className="my-8">
+          <PosterSlider
+            config={settings}
+            title="Similar Movies"
+            posters={similarMovies}
+            isDark={false}
+          />
+        </div>
 
         <div className="my-8">
           <hr />
         </div>
-
       </div>
     </>
   );

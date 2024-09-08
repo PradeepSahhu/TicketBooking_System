@@ -38,7 +38,7 @@ const PosterSlider = (props) => {
 
   return (
     <>
-      <div className="flex flex-col items-start sm:ml-3 ml-0 my-2">
+      <div className="flex flex-col items-start sm:ml-3 ml-0 my-2 ">
         <h3
           className={`text-2xl font-bold ${
             isDark ? "text-white" : "text-black"

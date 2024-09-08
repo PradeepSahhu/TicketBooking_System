@@ -25,7 +25,6 @@ import {
   ChatBubbleOvalLeftIcon,
   UsersIcon,
   FolderIcon,
-
   FaceSmileIcon,
   PuzzlePieceIcon,
   GiftIcon,
@@ -107,7 +106,7 @@ const navListMenuItems = [
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
- 
+
   const renderItems = navListMenuItems.map(
     ({ icon, title, description, color }, key) => (
       <a href="/" key={key}>
@@ -134,13 +133,13 @@ function NavListMenu() {
       </a>
     )
   );
- 
+
   return (
     <React.Fragment>
       <Menu
         open={isMenuOpen}
         handler={setIsMenuOpen}
-        offset={{ mainAxis: -120,}}
+        offset={{ mainAxis: -120 }}
         placement="right"
         allowHover={true}
         className="bg-transparent hover:bg-transparent"
@@ -182,9 +181,6 @@ function NavListMenu() {
   );
 }
 
-
-
-
 const profileMenuItems = [
   {
     label: "My Profile",
@@ -207,11 +203,11 @@ const profileMenuItems = [
     icon: PowerIcon,
   },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -267,8 +263,6 @@ function ProfileMenu() {
     </Menu>
   );
 }
-
-
 
 function NavSm() {
   return (
@@ -333,8 +327,9 @@ function NavLg() {
             />
           </div>
         </div>
+
         <div className="flex items-center gap-3">
-          <NavListMenu/>
+          <NavListMenu />
           <ProfileMenu />
         </div>
       </div>
@@ -347,22 +342,43 @@ function NavLink() {
     <>
       <div className="container flex mx-auto px-4 py-4 items-center justify-between">
         <div className="text-gray-400  flex gap-4 text-sm">
-        <a className="hover:text-white" href="/">Movies</a>
-        <a className="hover:text-white" href="/">Stream</a>
-        <a className="hover:text-white" href="/">Events</a>
-        <a className="hover:text-white" href="/">Plays</a>
-        <a className="hover:text-white" href="/">Sports</a>
-        <a className="hover:text-white" href="/">Activities</a>
-        <a className="hover:text-white" href="/">Buzz</a>
+          <a className="hover:text-white" href="/">
+            Movies
+          </a>
+          <a className="hover:text-white" href="/">
+            Stream
+          </a>
+          <a className="hover:text-white" href="/">
+            Events
+          </a>
+          <a className="hover:text-white" href="/">
+            Plays
+          </a>
+          <a className="hover:text-white" href="/">
+            Sports
+          </a>
+          <a className="hover:text-white" href="/">
+            Activities
+          </a>
+          <a className="hover:text-white" href="/">
+            Buzz
+          </a>
         </div>
 
         <div className="text-gray-400  flex gap-2 text-[12px]">
-          <a className="hover:text-white" href="/">ListYourShow</a>
-          <a className="hover:text-white" href="/">Corporates</a>
-          <a className="hover:text-white" href="/">Offers</a>
-          <a className="hover:text-white" href="/">Gift Cards</a>
+          <a className="hover:text-white" href="/">
+            ListYourShow
+          </a>
+          <a className="hover:text-white" href="/">
+            Corporates
+          </a>
+          <a className="hover:text-white" href="/">
+            Offers
+          </a>
+          <a className="hover:text-white" href="/">
+            Gift Cards
+          </a>
         </div>
-        
       </div>
     </>
   );
@@ -372,27 +388,24 @@ function NavLink() {
 const Navbarr = () => {
   return (
     <div>
-
-   
-    <nav className="bg-darkBackground-700 px-4 py-3">
-      {/* Mobile Screen NavBar */}
-      <div className="md:hidden">
-        <NavSm />
+      {/* <button onClick={() => }>Dark Model</button> */}
+      <nav className="bg-darkBackground-700 px-4 py-3">
+        {/* Mobile Screen NavBar */}
+        <div className="md:hidden">
+          <NavSm />
+        </div>
+        {/* Medium/Tab Screen NavBar */}
+        <div className="hidden md:flex lg:hidden">
+          <NavMd />
+        </div>
+        {/* Large Screen NavBar */}
+        <div className="hidden md:hidden flex-col lg:flex">
+          <NavLg />
+        </div>
+      </nav>
+      <div className="bg-darkBackground-800 hidden md:block">
+        <NavLink />
       </div>
-      {/* Medium/Tab Screen NavBar */}
-      <div className="hidden md:flex lg:hidden">
-        <NavMd />
-      </div>
-      {/* Large Screen NavBar */}
-      <div className="hidden md:hidden flex-col lg:flex">
-        <NavLg />
-        
-      </div>
-    </nav>
-    <div className="bg-darkBackground-800 hidden md:block">
-    <NavLink/>
-    </div>
-    
     </div>
   );
 };
