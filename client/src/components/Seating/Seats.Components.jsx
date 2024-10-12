@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../index.css"; // Create this file for basic styling
+import { MovieContext } from "../../context/Movie.context";
+import PaymentModel from "../PaymentModal/Payment.Component";
 
 const rows = 5; // Number of rows
 const cols = 10; // Number of seats per row
 
 const CinemaSeatSelection = () => {
+  const { price, setIsOpen, isOpen, buyTickets } = useContext(MovieContext);
   // Initial seat state: available (true) or reserved (false)
   const [seats, setSeats] = useState(
     Array(rows)
@@ -77,6 +80,7 @@ const CinemaSeatSelection = () => {
 
   return (
     <div className="cinema ">
+      <PaymentModel setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <h2>Select Your Seats</h2>
       <div className="grid grid-cols-3">
         <div className="cols-start-1 cols-end-1">{renderleftSeats()}</div>
@@ -90,7 +94,10 @@ const CinemaSeatSelection = () => {
           {selectedSeats.length === 0 ? "None" : selectedSeats.join(", ")}
         </h3>
       </div>
-      <button className="m-5 bg-black text-md rounded-xl text-white px-5 py-3">
+      <button
+        className="m-5 bg-black text-md rounded-xl text-white px-5 py-3"
+        onClick={() => buyTickets(500 * selectedSeats.length)}
+      >
         Confirm Ticket
       </button>
     </div>

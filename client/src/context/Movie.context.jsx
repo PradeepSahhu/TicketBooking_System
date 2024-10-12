@@ -24,6 +24,12 @@ const MovieProvider = ({ children }) => {
     setPrice(599);
   };
 
+  const buyTickets = (prices) => {
+    console.log("Buy ticket function has been called");
+    setIsOpen(true);
+    setPrice(prices);
+  };
+
   return (
     <MovieContext.Provider
       value={{
@@ -35,6 +41,7 @@ const MovieProvider = ({ children }) => {
         setPrice,
         rentMovie,
         buyMovie,
+        buyTickets,
       }}
     >
       {children}
