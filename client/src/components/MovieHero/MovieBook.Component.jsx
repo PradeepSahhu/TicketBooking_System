@@ -36,14 +36,14 @@ const MovieName = ({ movie }) => {
                   className="text-white text-xl font-bold mr-5"
                   for="selectPeople"
                 >
-                  People Count
+                  How Many Seats?
                 </label>
                 <select
                   name="selectPeople"
                   className="w-1/2 justify-end focus:border-yellow-400 px-5 py-2 rounded-xl focus:outline-yellow-400"
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-                    <option value={item}>{item} People</option>
+                    <option value={item}>{item} Seats</option>
                   ))}
                 </select>
               </div>

@@ -15,3 +15,47 @@ body {
   right: 3% !important;
   z-index: 1;
 }
+
+.cinema {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cinema h2 {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+}
+
+.seat {
+  width: 20px;
+  height: 20px;
+  background-color: #f0f0f0;
+  margin: 3px 10px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.seat.selected {
+  background-color: green;
+  color: white;
+}
+
+.seat.reserved {
+  background-color: red;
+  color: white;
+  cursor: not-allowed;
+}
+
+.selection-summary {
+  margin-top: 20px;
+}
