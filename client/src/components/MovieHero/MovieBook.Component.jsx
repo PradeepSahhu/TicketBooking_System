@@ -9,7 +9,7 @@ const MovieName = ({ movie }) => {
 
   const bookTicket = () => {
     // Here, you can pass the movie props to the "ticketbook" page using state
-    navigate("/ticketbook", { state: { movie } });
+    navigate("/bookseats", { state: { movie } });
   };
 
   const { price, setIsOpen, isOpen, rentMovie, buyMovie } =
@@ -40,7 +40,7 @@ const MovieName = ({ movie }) => {
                 </label>
                 <select
                   name="selectPeople"
-                  className="w-1/2 justify-end focus:border-yellow-400 px-5 py-2 rounded-xl focus:outline-yellow-400"
+                  className="w-1/2 justify-end focus:border-black px-5 py-2 rounded-xl focus:outline-black"
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
                     <option value={item}>{item} Seats</option>
@@ -48,7 +48,10 @@ const MovieName = ({ movie }) => {
                 </select>
               </div>
               <div className="flex justify-center text-white my-5">
-                <button className="flex px-5 py-3 my-2 rounded-xl bg-blue-gray-700 group hover:scale-90 transition-all duration-300">
+                <button
+                  className="flex px-5 py-3 my-2 rounded-xl bg-black group hover:scale-90 transition-all duration-300"
+                  onClick={bookTicket}
+                >
                   <VscDebugContinue className="text-2xl mr-2 group-hover:text-black" />
                   Continue
                 </button>

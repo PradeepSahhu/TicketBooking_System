@@ -29,7 +29,7 @@ function BookTicket() {
 
         <div>
           <button className="px-6 py-[6px] border border-gray-600 rounded-sm text-[14px]">
-            2 Tickets
+            {/* 2 Tickets */}
           </button>
         </div>
       </div>

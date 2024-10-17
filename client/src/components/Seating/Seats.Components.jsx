@@ -182,7 +182,7 @@ const CinemaSeatSelection = () => {
         className="m-5 bg-black text-md rounded-xl text-white px-5 py-3"
         onClick={() =>
           buyTickets(
-            500 *
+            320 *
               (selectedSeats.length +
                 selectedSeatsLeft.length +
                 selectedSeatsRight.length)
